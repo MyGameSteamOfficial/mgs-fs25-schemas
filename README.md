@@ -54,4 +54,3 @@ These schemas assist editing and validation; they do not add functionality to Fa
 
 Farming Simulator and GIANTS Software are trademarks of their respective owners. The original GIANTS schema files and third-party documentation remain the property of their respective authors. MGS extensions are independently maintained and are not affiliated with or endorsed by GIANTS Software.
 
-**Before making this repository public, confirm permission to redistribute the included upstream schemas and third-party documentation.** No redistribution license is asserted for those files.
