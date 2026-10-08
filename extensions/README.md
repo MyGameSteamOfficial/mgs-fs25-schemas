@@ -1,9 +1,9 @@
-# Extension definitions
+# Vehicle schema extensions
 
-Third-party schema additions must be isolated from GIANTS source files.
+`scripts/build.py` generates `dist/fs25/vehicle.xsd` from `upstream/giants/vehicle.xsd`.
 
-Each integration should record: upstream mod name and version, documentation source, supported XML paths, attribute types/defaults, examples, and test cases.
+The current additions cover Interactive Control elements and the `storeData/specs/year` element used by Vehicle Years.
 
-Interactive Control is the first integration. Vehicle Years is provisional until its own documentation is reviewed.
+Interactive Control definitions are based on the supplied project reference; some constraints are intentionally permissive where the reference does not specify valid values. Changes should be checked against representative vehicle XML before release.
 
-Avoid adding all possible attributes to a generated XML completion block: XML schemas describe valid structure, while the separate MGS completion extension provides minimal, practical insertion templates.
+The schema describes valid XML structure. Minimal XML insertion templates are maintained separately in the MGS editor extension.
