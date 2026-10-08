@@ -1,14 +1,13 @@
-# VS Code setup
+# Editor setup
 
-1. Install GIANTS Farming Simulator IDE Support.
-2. Keep XML formatting on save disabled if you want to preserve attribute layout.
-3. Use a local absolute filesystem path for experimental schema validation, e.g.:
+For VS Code, install an XML extension with XSD support and open the mod folder as a workspace.
+
+Reference the hosted vehicle schema in the XML root element:
 
 ```xml
-xsi:noNamespaceSchemaLocation="C:/MGS-FS25-Schemas/dist/fs25/vehicle.xsd"
+<vehicle type="car" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/MyGameSteamOfficial/mgs-fs25-schemas/main/dist/fs25/vehicle.xsd">
 ```
 
-4. Confirm that `interactiveControl` and `year` are recognized, and test completion within nested Interactive Control elements.
-5. Restore the original schema reference before releasing a mod.
+The GitHub repository must be public for the URL to work without authentication. Some editor extensions only resolve local schema paths; if remote resolution fails, download the schema directory and reference its local `vehicle.xsd`.
 
-A GitHub raw URL is **not yet verified** with the GIANTS extension. Do not assume an XSD file is hosted simply because this repository exists.
+Avoid changing schema references in released mod XML unless the target game and mod distribution process explicitly supports that reference.
