@@ -1,6 +1,6 @@
 from pathlib import Path
 from lxml import etree
-import shutil, re
+import shutil
 BASE=Path(__file__).resolve().parents[1]
 SRC=BASE/'upstream/giants'; OUT=BASE/'dist/fs25'; OUT.mkdir(parents=True,exist_ok=True)
 for f in SRC.glob('*.xsd'): shutil.copy2(f,OUT/f.name)
