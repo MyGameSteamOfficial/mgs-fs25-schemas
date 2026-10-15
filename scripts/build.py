@@ -80,8 +80,10 @@ etree.SubElement(exhaust_type,X('anyAttribute'),processContents='lax')
 # Dashboard RPM values are used by mod-specific dashboard implementations.
 for dashboard in doc.xpath('.//xs:element[@name="dashboard"]',namespaces=ns):
     dashboard_type=dashboard.find('./'+X('complexType'))
-    if dashboard_type is not None and not dashboard_type.xpath('./xs:attribute[@name="minRpm"]',namespaces=ns):
-        etree.SubElement(dashboard_type,X('attribute'),name='minRpm',type='xs:float')
+    if dashboard_type is not None:
+        for rpm_attribute in ('minRpm','maxRpm'):
+            if not dashboard_type.xpath('./xs:attribute[@name=$name]',namespaces=ns,name=rpm_attribute):
+                etree.SubElement(dashboard_type,X('attribute'),name=rpm_attribute,type='xs:float')
 
 # MGS DRL Color configuration.
 drl=elem(allnode,'mgsDrlColor',docstr='MGS DRL color configuration.')
