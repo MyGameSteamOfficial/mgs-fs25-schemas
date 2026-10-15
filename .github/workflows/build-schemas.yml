@@ -1,0 +1,35 @@
+name: Build schemas
+on:
+  push:
+    paths:
+      - 'scripts/build.py'
+      - 'upstream/giants/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install lxml
+      - run: python scripts/build.py
+      - name: Validate vehicle schema
+        run: |
+          python - <<'PY'
+          from lxml import etree
+          etree.XMLSchema(etree.parse('dist/fs25/vehicle.xsd'))
+          print('vehicle.xsd valid')
+          PY
+      - name: Commit generated schemas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/fs25
+          if ! git diff --cached --quiet; then
+            git commit -m "build: regenerate extended vehicle schema"
+            git push
+          fi
