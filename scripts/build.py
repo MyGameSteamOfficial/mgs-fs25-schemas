@@ -62,10 +62,11 @@ named('MGS_IC_ClickIcon',{'blinkSpeed':f,'filename':s,'name':s,'node':s})
 named('MGS_IC_Registers',{},[('clickIcon','MGS_IC_ClickIcon')])
 named('MGS_IC_Root',{},[('interactiveControls','MGS_IC_Controls'),('interactiveControlConfigurations','MGS_IC_Configurations'),('registers','MGS_IC_Registers')])
 elem(allnode,'interactiveControl','MGS_IC_Root',docstr='Interactive Control third-party extension. Requires Interactive Control mod.')
-# Vehicle Years uses storeData/year, not storeData/specs/year.
-store=doc.xpath('./xs:element[@name="vehicle"]/xs:complexType/xs:all/xs:element[@name="storeData"]',namespaces=ns)[0]
-store_all=store.find('./'+X('complexType')+'/'+X('all'))
-elem(store_all,'year','xs:int',docstr='Vehicle model year.')
+# Vehicle Years places the model year under storeData/specs.
+spec=doc.xpath('.//xs:element[@name="specs"]',namespaces=ns)[0]
+choice=spec.find('./'+X('complexType')+'/'+X('choice'))
+if choice is not None:
+    elem(choice,'year','xs:int',docstr='Vehicle model year.')
 
 # Exhaust extension is supplied by a third-party specialization. Accept its
 # content without weakening validation of the surrounding motorized element.
