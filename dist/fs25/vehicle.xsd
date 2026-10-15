@@ -4675,7 +4675,7 @@
                                                             <xs:attribute name="wheelIndices" type="g_vector_n">
                                                                 <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                             </xs:attribute>
-                                                        <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                                        <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                                     </xs:element>
                                                 </xs:choice>
                                             </xs:complexType>
@@ -8327,7 +8327,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -9507,7 +9507,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -14108,7 +14108,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -14704,7 +14704,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -15771,7 +15771,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -19011,7 +19011,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -19965,7 +19965,7 @@
                                                                         <xs:attribute name="wheelIndices" type="g_vector_n">
                                                                             <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                                         </xs:attribute>
-                                                                    <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                                                    <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                                                 </xs:element>
                                                             </xs:choice>
                                                         </xs:complexType>
@@ -21713,7 +21713,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -23352,7 +23352,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -23416,7 +23416,7 @@
                         <xs:attribute name="tickIntervall" type="g_time">
                             <xs:annotation><xs:documentation xml:lang="en">If defined the low priority dashboard will get updated at this interval (otherwise every second frame)</xs:documentation></xs:annotation>
                         </xs:attribute>
-                    <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                    <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                 </xs:element>
                 <xs:element name="design10Configurations" minOccurs="0" maxOccurs="1">
                     <xs:complexType>
@@ -30990,7 +30990,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -32699,7 +32699,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -33586,7 +33586,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -34936,7 +34936,7 @@
                                                                                     <xs:attribute name="wheelIndices" type="g_vector_n">
                                                                                         <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                                                     </xs:attribute>
-                                                                                <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                                                                <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                                                             </xs:element>
                                                                             <xs:element name="exactFillRootNode" minOccurs="0" maxOccurs="1">
                                                                                 <xs:complexType>
@@ -40875,7 +40875,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -43458,7 +43458,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -46564,7 +46564,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                         <xs:element name="objectChange" type="ObjectChange_single" minOccurs="0" maxOccurs="unbounded"/>
                                     </xs:choice>
@@ -46978,7 +46978,7 @@
                                                                         <xs:attribute name="wheelIndices" type="g_vector_n">
                                                                             <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                                         </xs:attribute>
-                                                                    <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                                                    <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                                                 </xs:element>
                                                                 <xs:element name="objectChange" type="ObjectChange_single" minOccurs="0" maxOccurs="unbounded"/>
                                                             </xs:choice>
@@ -50672,7 +50672,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -54436,7 +54436,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -59553,7 +59553,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
@@ -60288,7 +60288,7 @@
                                                 <xs:attribute name="wheelIndices" type="g_vector_n">
                                                     <xs:annotation><xs:documentation xml:lang="en">List of wheel indices (separated by whitespace)</xs:documentation></xs:annotation>
                                                 </xs:attribute>
-                                            <xs:attribute name="minRpm" type="xs:float"/></xs:complexType>
+                                            <xs:attribute name="minRpm" type="xs:float"/><xs:attribute name="maxRpm" type="xs:float"/></xs:complexType>
                                         </xs:element>
                                     </xs:choice>
                                 </xs:complexType>
