@@ -62,10 +62,32 @@ named('MGS_IC_ClickIcon',{'blinkSpeed':f,'filename':s,'name':s,'node':s})
 named('MGS_IC_Registers',{},[('clickIcon','MGS_IC_ClickIcon')])
 named('MGS_IC_Root',{},[('interactiveControls','MGS_IC_Controls'),('interactiveControlConfigurations','MGS_IC_Configurations'),('registers','MGS_IC_Registers')])
 elem(allnode,'interactiveControl','MGS_IC_Root',docstr='Interactive Control third-party extension. Requires Interactive Control mod.')
-# The user supplied no Vehicle Years schema: only the observed specs/year element is supported.
-spec=doc.xpath('.//xs:element[@name="specs"]',namespaces=ns)[0]
-choice=spec.find('./'+X('complexType')+'/'+X('choice'))
-if choice is not None: elem(choice,'year','xs:int',docstr='Vehicle Years extension: model year. Exact upstream constraints not yet verified.')
+# Vehicle Years uses storeData/year, not storeData/specs/year.
+store=doc.xpath('./xs:element[@name="vehicle"]/xs:complexType/xs:all/xs:element[@name="storeData"]',namespaces=ns)[0]
+store_all=store.find('./'+X('complexType')+'/'+X('all'))
+elem(store_all,'year','xs:int',docstr='Vehicle model year.')
+
+# Exhaust extension is supplied by a third-party specialization. Accept its
+# content without weakening validation of the surrounding motorized element.
+motorized=doc.xpath('./xs:element[@name="vehicle"]/xs:complexType/xs:all/xs:element[@name="motorized"]',namespaces=ns)[0]
+motor_choice=motorized.find('./'+X('complexType')+'/'+X('choice'))
+exhaust=elem(motor_choice,'exhaustExtension')
+exhaust_type=etree.SubElement(exhaust,X('complexType'))
+exhaust_sequence=etree.SubElement(exhaust_type,X('sequence'),minOccurs='0')
+etree.SubElement(exhaust_sequence,X('any'),minOccurs='0',maxOccurs='unbounded',processContents='lax')
+etree.SubElement(exhaust_type,X('anyAttribute'),processContents='lax')
+
+# Dashboard RPM values are used by mod-specific dashboard implementations.
+for dashboard in doc.xpath('.//xs:element[@name="dashboard"]',namespaces=ns):
+    dashboard_type=dashboard.find('./'+X('complexType'))
+    if dashboard_type is not None and not dashboard_type.xpath('./xs:attribute[@name="minRpm"]',namespaces=ns):
+        etree.SubElement(dashboard_type,X('attribute'),name='minRpm',type='xs:float')
+
+# MGS DRL Color configuration.
+drl=elem(allnode,'mgsDrlColor',docstr='MGS DRL color configuration.')
+drl_type=etree.SubElement(drl,X('complexType'))
+for key,kind in [('node',s),('colorConfiguration',s),('typeConfiguration',s),('staticIndex',i),('hueIndex',i),('cycleSpeed',f)]:
+    etree.SubElement(drl_type,X('attribute'),name=key,type=kind)
 # Add IC animation-part attributes only where the original schema defines vehicle/animations/animation/part.
 # Avoid broad changes to unrelated animation parts; this remains a follow-up until exact paths are verified.
 root.write(str(OUT/'vehicle.xsd'),encoding='UTF-8',xml_declaration=True,pretty_print=False)
